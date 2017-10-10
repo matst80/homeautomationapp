@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:homeautomation.Views"
+    x:Class="homeautomation.Views.NodeItemView">
+	<ContentPage.Content>
+        <StackLayout Padding="10">
+            
+            <Label Text="Name" />
+            <Entry x:Name="tbName" Text="{Binding Name}" Placeholder="Enter name" />
+            <Label Text="Description" />
+            <Entry x:Name="tbDesc" Text="{Binding Description}" Placeholder="Enter description" />
+       
+ 
+            <Button Text="Save" Clicked="Handle_Clicked" />
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

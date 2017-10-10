@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{0D51A5CF-DB46-403E-945D-CD6FD8C48D0A}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>homeautomation</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MasterMenuListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeViews\BasicNodeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CarouselItemsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MasterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeViews\OnOffNodeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IWebSocketHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MasterMenuListView.xaml.cs">
+      <DependentUpon>MasterMenuListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)CustomElements\StyledNavigationPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BL\WebSocketHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\ApiHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\Common.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\DummySettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\NodeStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\BaseNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\TemperatureAndHumidityNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\StateHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IApiHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\INode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\INodeStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ISettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\NodeTypeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NodeViews\BasicNodeView.xaml.cs">
+      <DependentUpon>BasicNodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NodeViews\BaseNodeContentView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NodeListView.xaml.cs">
+      <DependentUpon>NodeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\NodeDataItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\NodeDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\NodeViewAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\NodeFeatureAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\BrightnessNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\OnOffNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NodeItemView.xaml.cs">
+      <DependentUpon>NodeItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CarouselItemsView.xaml.cs">
+      <DependentUpon>CarouselItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MasterView.xaml.cs">
+      <DependentUpon>MasterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ControlViews\NodeList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ControlViews\NodeSelectorView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NodeViews\OnOffNodeView.xaml.cs">
+      <DependentUpon>OnOffNodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\JsonModels\DataNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\JsonModels\CustomizationData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Views\NodeViews\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\ControlViews\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DataModel\JsonModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)CustomElements\" />
+  </ItemGroup>
+  
+</Project>

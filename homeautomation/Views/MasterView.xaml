@@ -1,0 +1,17 @@
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:local="clr-namespace:homeautomation.Views"
+                  Title="Provar"
+                  MasterBehavior="Popover"
+                  x:Class="homeautomation.Views.MyMasterView">
+    <MasterDetailPage.Master>
+        <local:MasterMenuListView />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <local:NodeListView />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

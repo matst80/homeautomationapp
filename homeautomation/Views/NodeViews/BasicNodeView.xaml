@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseNodeContentView
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:homeautomation.Views"
+    BackgroundColor="Transparent"
+    x:Class="homeautomation.Views.NodeViews.BasicNodeView">
+	<ContentView.Content>
+        <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+            <Label Text="{Binding Updates}" FontSize="20" TextColor="#e67e22" HorizontalOptions="Start" />
+            <StackLayout HorizontalOptions="StartAndExpand" BackgroundColor="Transparent">
+                <Label Text="{Binding Name}" TextColor="White" />
+                <Label Text="{Binding Description}" TextColor="#7f8c8d" />
+            </StackLayout>
+            <Label HorizontalOptions="EndAndExpand" Text="{Binding StringRepresentation}" />
+        </StackLayout>
+    </ContentView.Content>
+</local:BaseNodeContentView>
