@@ -13,6 +13,12 @@ namespace homeautomation.DataModel
         {
         }
 
+        public Color CurrentColor {
+            get{
+                return IsPowerdOn ? Color.Yellow : Color.Tomato;
+            }
+        }
+
 		public ICommand SendOn => new Command((obj) =>
 		{
             base.SendState.Execute("on");
@@ -25,7 +31,8 @@ namespace homeautomation.DataModel
 
         public ICommand SendBoolState => new Command((obj) =>
         {
-            base.SendState.Execute(((bool)obj)?"on":"off");
+            //if (IsPowerdOn != (bool)obj)
+                base.SendState.Execute(((bool)obj)?"on":"off");
         });
 
         private Type viewType = typeof(Views.NodeViews.OnOffNodeView);
@@ -38,9 +45,12 @@ namespace homeautomation.DataModel
         {
             base.Parse(node);
             //Name += ".";
-            IsPowerdOn = node.State.ToString() == "on";
-            StringRepresentation = IsPowerdOn ? "On" : "Off";
-
+            var newState = node.State.ToString() == "on";
+            if (IsPowerdOn != newState)
+            {
+                IsPowerdOn = newState;
+                StringRepresentation = IsPowerdOn ? "On" : "Off";
+            }
         }
     }
 }

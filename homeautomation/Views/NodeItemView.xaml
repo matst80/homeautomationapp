@@ -11,7 +11,7 @@
             <Entry x:Name="tbName" Text="{Binding Name}" Placeholder="Enter name" />
             <Label Text="Description" />
             <Entry x:Name="tbDesc" Text="{Binding Description}" Placeholder="Enter description" />
-       
+            <Label Text="{Binding FeatureString}" />
  
             <Button Text="Save" Clicked="Handle_Clicked" />
         </StackLayout>

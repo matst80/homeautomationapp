@@ -109,6 +109,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="CustomElements\" />
+    <Folder Include="New Folder\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -123,6 +124,12 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="CustomElements\StyledNavigationPageRenderer.cs" />
+    <Compile Include="CustomElements\NodeSelectorViewRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
   <Import Project="..\homeautomation\homeautomation.projitems" Label="Shared" Condition="Exists('..\homeautomation\homeautomation.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

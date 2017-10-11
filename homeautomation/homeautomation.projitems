@@ -13,6 +13,9 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MasterMenuListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeViews\BrightnessNodeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -27,9 +30,6 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeItemView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CarouselItemsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MasterView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -41,6 +41,11 @@
       <DependentUpon>MasterMenuListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)CustomElements\StyledNavigationPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomElements\IconLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\BrightnessTempNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NodeViews\BrightnessNodeView.xaml.cs">
+      <DependentUpon>BrightnessNodeView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BL\WebSocketHelper.cs" />
@@ -72,9 +77,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\OnOffNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\NodeItemView.xaml.cs">
       <DependentUpon>NodeItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\CarouselItemsView.xaml.cs">
-      <DependentUpon>CarouselItemsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>

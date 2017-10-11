@@ -3,15 +3,15 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:homeautomation.Views"
-    x:Class="homeautomation.Views.NodeViews.OnOffNodeView">
-	<ContentView.Content>
+    x:Class="homeautomation.Views.NodeViews.BrightnessNodeView">
+    <ContentView.Content>
         <StackLayout Orientation="Horizontal">
             <Label Text="{Binding Updates}" FontSize="20" TextColor="#e67e22" HorizontalOptions="Start"></Label>
             <StackLayout HorizontalOptions="StartAndExpand">
                 <Label Text="{Binding Name}" TextColor="White"></Label>
                 <Label Text="{Binding Description}" TextColor="#7f8c8d"></Label>
             </StackLayout>
-            <Button FontFamily="FontAwesome" HorizontalOptions="End" FontSize="20" Text="&#xf011;" x:Name="bOn" TextColor="{Binding CurrentColor}" Clicked="Handle_Clicked" />
+            <Slider Value="{Binding Brightness}" ValueChanged="Handle_ValueChanged" x:Name="sliderBrightness" Minimum="0" Maximum="255" />
         </StackLayout>
-	</ContentView.Content>
+    </ContentView.Content>
 </local:BaseNodeContentView>

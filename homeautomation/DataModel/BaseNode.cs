@@ -21,6 +21,13 @@ namespace homeautomation.DataModel
 
         public int Updates { get; set; }
 
+        public string FeatureString {
+            get
+            {
+                return string.Join(", ", Features);
+            }                           
+        }
+
         public string StringRepresentation { get; set; }
 
         public bool WaitingForChange { get; set; }
@@ -37,11 +44,10 @@ namespace homeautomation.DataModel
 
         public ICommand SendState => new Command((obj) =>
         {
-            if (!WaitingForChange)
-            {
-                WaitingForChange = true;
-                Helpers.StateHelper.Instance.ApiHandler.SendState(this, obj);
-            }
+        
+            WaitingForChange = true;
+            Helpers.StateHelper.Instance.ApiHandler.SendState(this, obj);
+
         });
 
 

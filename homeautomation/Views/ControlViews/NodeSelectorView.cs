@@ -20,12 +20,17 @@ namespace homeautomation.Views
         public NodeSelectorView()
         {
             BackgroundColor = Color.Transparent;
-            var baseView = new StackLayout();
+            var baseView = new StackLayout()
+            {
+                Orientation = StackOrientation.Horizontal
+            };
             baseView.BackgroundColor = Color.Transparent;
             Content = baseView;
             var openButton = new Button()
             {
-                Text = "Settings",
+                Text = "\uf013",
+                FontSize = 20,
+                FontFamily = "FontAwesome",
                 VerticalOptions = LayoutOptions.End
             };
             openButton.Command = new Command(() =>
@@ -53,7 +58,8 @@ namespace homeautomation.Views
                     var sl = Content as StackLayout;
                     sl.Children.Remove(currentView);
                     currentView = Activator.CreateInstance(newViewType) as BaseNodeContentView;
-                    sl.Children.Add(currentView);
+                    currentView.HorizontalOptions = LayoutOptions.StartAndExpand;
+                    sl.Children.Insert(0,currentView);
                     //Content = currentView;
                 }
             }

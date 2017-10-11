@@ -24,8 +24,9 @@ namespace homeautomation.BL
         public WebSocketHelper(Uri server) => serverUrl = server;
 
         public async Task StartListening() {
-           // var cancelSource = new CancellationTokenSource();
-            await client.ConnectAsync(serverUrl, cancelConnectSource.Token);
+            // var cancelSource = new CancellationTokenSource();
+            if (client.State != WebSocketState.Open)
+                await client.ConnectAsync(serverUrl, cancelConnectSource.Token);
             await StartRecivingMessages();
         }
 
@@ -47,8 +48,11 @@ namespace homeautomation.BL
             return JsonConvert.DeserializeObject<JsonMessage>(data);
         }
 
+       // private bool IsRecieving = false;
+
         private async Task StartRecivingMessages()
         {
+            
             var segment = new ArraySegment<byte>(messageBuffer);
 
             var result = await client.ReceiveAsync(segment, cancelMessageSource.Token);
@@ -77,7 +81,8 @@ namespace homeautomation.BL
             var jsonMessage = GetMessage(message);
             HandleTopicSubscriptions(jsonMessage);
             MessageRecieved?.Invoke(jsonMessage);
-            if (client.State == WebSocketState.Open)
+
+            if (client.State != WebSocketState.Open)
                 await StartRecivingMessages();
             else
                 await StartListening();
