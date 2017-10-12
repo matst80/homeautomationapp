@@ -7,6 +7,9 @@ namespace homeautomation
     {
         public StyledNavigationPage(Page content) : base(content)
         {
+            BarBackgroundColor = Color.White;
         }
     }
+
+
 }

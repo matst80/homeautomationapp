@@ -48,7 +48,19 @@ namespace homeautomation.DataModel
             return viewType;
         }
 
-        public override void Parse(Interfaces.IDataNode node)
+        public override Color BackgroundColor
+        {
+            get
+            {
+                return Color.FromHex("#f1c40f");
+            }
+            set
+            {
+                base.BackgroundColor = value;
+            }
+        }
+
+        public override void Parse(DataNode node)
         {
             base.Parse(node);
             var newBrightness = 0;

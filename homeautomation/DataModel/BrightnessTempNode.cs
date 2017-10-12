@@ -13,6 +13,18 @@ namespace homeautomation.DataModel
         {
         }
 
+        public override Color BackgroundColor
+        {
+            get
+            {
+                return Color.FromHex("#1abc9c");
+            }
+            set
+            {
+                base.BackgroundColor = value;
+            }
+        }
+
         public int Temp { get; set; }
 
         public ICommand SetTemp => new Command((obj) =>

@@ -9,6 +9,13 @@ namespace homeautomation.Views
     {
         private ViewModels.BaseViewModel MyViewModel = new ViewModels.BaseViewModel();
 
+        public NodeListView(Interfaces.INodeContainer container)
+        {
+            MyViewModel.SetSourceContainer(container);
+            InitializeComponent();
+            BindingContext = MyViewModel;
+        }
+
         public NodeListView()
         {
             InitializeComponent();

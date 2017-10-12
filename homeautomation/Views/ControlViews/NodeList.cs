@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace homeautomation.Views
 {
-    public class NodeList : StackLayout
+    public class NodeList : Layout<View>
     {
       
 
@@ -38,11 +38,11 @@ namespace homeautomation.Views
             base.OnBindingContextChanged();
 
 
-                foreach (var n in Nodes)
-                {
-                    this.Children.Add(CreateDefault(n));
-                }
-				Nodes.CollectionChanged += Nodes_CollectionChanged;
+            foreach (var n in Nodes)
+            {
+                this.Children.Add(CreateDefault(n));
+            }
+    		Nodes.CollectionChanged += Nodes_CollectionChanged;
 
 			
         }
@@ -51,7 +51,32 @@ namespace homeautomation.Views
         {
             var ret = new NodeSelectorView();
             ret.BindingContext = item;
+            ret.Opacity = 0;
+            ret.FadeTo(1,500,Easing.SinIn);
             return ret;
+        }
+
+        protected override void LayoutChildren(double x, double y, double width, double height)
+        {
+            var row = 0;
+            var i = 0;
+            var cols = Math.Floor(width / 150);
+
+            var iw = width / cols;
+            var ih = iw * 0.8;
+
+            foreach(var view in Children) {
+                view.LayoutTo(new Rectangle(i*iw,row*ih,iw,ih));
+                if (i++ > cols)
+                {
+                    row++;
+                    i = 0;
+                }
+
+                view.WidthRequest = iw;
+                view.HeightRequest = ih;
+            }
+            HeightRequest = ih * (row + 1);
         }
     }
 }

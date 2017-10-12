@@ -1,11 +1,11 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:local="clr-namespace:homeautomation.Views"
-                  Title="Provar"
-                  MasterBehavior="Popover"
+                  Title="Homeninja"
+                  MasterBehavior="Default"
                   x:Class="homeautomation.Views.MyMasterView">
     <MasterDetailPage.Master>
-        <local:MasterMenuListView />
+        <local:ContainerListView x:Name="containerPage" BackgroundColor="#66ccf5" />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>

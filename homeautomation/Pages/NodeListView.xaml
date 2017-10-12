@@ -4,10 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:homeautomation.Views"
     x:Class="homeautomation.Views.NodeListView"
-    BackgroundColor="#2c3e50"
-    Title="Sklep">
-	<ContentPage.Content>    
-        <ListView ItemsSource="{Binding Nodes}" HasUnevenRows="true" SeparatorVisibility="None" CachingStrategy="RecycleElement" BackgroundColor="Transparent">
+    Title="{Binding Title}">
+	<ContentPage.Content>  
+        <ScrollView>
+            <local:NodeList Nodes="{Binding Nodes}" />
+        </ScrollView>
+        <!--<ListView ItemsSource="{Binding Nodes}" HasUnevenRows="true" SeparatorVisibility="None" CachingStrategy="RecycleElement" BackgroundColor="Transparent">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -15,6 +17,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
    </ContentPage.Content>
 </ContentPage>

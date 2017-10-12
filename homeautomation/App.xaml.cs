@@ -10,7 +10,14 @@ namespace homeautomation
 
             //MainPage = new Views.MyMasterView();
             MainPage = new StyledNavigationPage(new Views.NodeListView());
+            //MainPage = new StyledNavigationPage(new AutomationStart());
 
+        }
+
+        public static void ShowConnectionErrorMessage(string title, System.Exception ex) {
+            Device.BeginInvokeOnMainThread(()=>{
+                App.Current.MainPage.DisplayAlert("Connection error",title+"\n\r"+ex.Message,"Ok");
+            });
         }
 
         protected override void OnStart()

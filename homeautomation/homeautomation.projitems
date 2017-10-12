@@ -10,10 +10,22 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MasterMenuListView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeViews\BrightnessNodeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeViews\BrightnessNodeView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MasterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\ContainerListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\NodeItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\NodeListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AutomationStart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -24,27 +36,32 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeViews\BasicNodeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeListView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeItemView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MasterView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NodeViews\OnOffNodeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IWebSocketHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\MasterMenuListView.xaml.cs">
-      <DependentUpon>MasterMenuListView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)CustomElements\StyledNavigationPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CustomElements\IconLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\BrightnessTempNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\NodeViews\BrightnessNodeView.xaml.cs">
       <DependentUpon>BrightnessNodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\JsonModels\DataNodeContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\NodeContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MasterView.xaml.cs">
+      <DependentUpon>MasterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ContainerListView.xaml.cs">
+      <DependentUpon>ContainerListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\NodeItemView.xaml.cs">
+      <DependentUpon>NodeItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\NodeListView.xaml.cs">
+      <DependentUpon>NodeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)AutomationStart.xaml.cs">
+      <DependentUpon>AutomationStart.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -66,21 +83,12 @@
       <DependentUpon>BasicNodeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\NodeViews\BaseNodeContentView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\NodeListView.xaml.cs">
-      <DependentUpon>NodeListView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\NodeDataItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\NodeDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\NodeViewAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\NodeFeatureAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\BrightnessNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\OnOffNode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\NodeItemView.xaml.cs">
-      <DependentUpon>NodeItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\MasterView.xaml.cs">
-      <DependentUpon>MasterView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ControlViews\NodeList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ControlViews\NodeSelectorView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\NodeViews\OnOffNodeView.xaml.cs">
@@ -94,6 +102,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Views\ControlViews\" />
     <Folder Include="$(MSBuildThisFileDirectory)DataModel\JsonModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)CustomElements\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Pages\" />
   </ItemGroup>
   
 </Project>

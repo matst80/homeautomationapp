@@ -5,13 +5,13 @@
     xmlns:local="clr-namespace:homeautomation.Views"
     x:Class="homeautomation.Views.NodeViews.BrightnessNodeView">
     <ContentView.Content>
-        <StackLayout Orientation="Horizontal">
-            <Label Text="{Binding Updates}" FontSize="20" TextColor="#e67e22" HorizontalOptions="Start"></Label>
-            <StackLayout HorizontalOptions="StartAndExpand">
-                <Label Text="{Binding Name}" TextColor="White"></Label>
-                <Label Text="{Binding Description}" TextColor="#7f8c8d"></Label>
+        
+            <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+                <Label Text="{Binding Name}" TextColor="#333" FontSize="14" />
+                <Label Text="{Binding Description}" TextColor="#888" FontSize="11" />
+                <Slider Value="{Binding Brightness}" ValueChanged="Handle_ValueChanged" x:Name="sliderBrightness" Minimum="0" Maximum="255" />
             </StackLayout>
-            <Slider Value="{Binding Brightness}" ValueChanged="Handle_ValueChanged" x:Name="sliderBrightness" Minimum="0" Maximum="255" />
-        </StackLayout>
+
+        
     </ContentView.Content>
 </local:BaseNodeContentView>

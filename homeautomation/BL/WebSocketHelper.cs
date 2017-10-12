@@ -52,6 +52,8 @@ namespace homeautomation.BL
 
         private async Task StartRecivingMessages()
         {
+            try {
+                
             
             var segment = new ArraySegment<byte>(messageBuffer);
 
@@ -86,8 +88,17 @@ namespace homeautomation.BL
                 await StartRecivingMessages();
             else
                 await StartListening();
+            }
+            catch(WebSocketException ex) {
+                App.ShowConnectionErrorMessage("Websockets not able to connect",ex);
+                //await App.Current.MainPage.DisplayAlert("Connection error","Websockets not able to connect\n\r"+ex.Message,"Retry...");
+                ScheduleNewConnection();
+            }
         }
 
-
+        private void ScheduleNewConnection() => Task.Delay(TimeSpan.FromSeconds(30)).ContinueWith(async task =>
+        {
+            await StartListening();
+        });
     }
 }

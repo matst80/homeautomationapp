@@ -1,6 +1,7 @@
 ﻿using System;
 using homeautomation.Interfaces;
 using Newtonsoft.Json.Linq;
+using Xamarin.Forms;
 
 namespace homeautomation.DataModel
 {
@@ -17,13 +18,25 @@ namespace homeautomation.DataModel
             set;
         }
 
+        public override Xamarin.Forms.Color BackgroundColor
+        {
+            get
+            {
+                return Color.FromHex("#e74c3c");
+            }
+            set
+            {
+                base.BackgroundColor = value;
+            }
+        }
+
         public float Humidity
         {
             get;
             set;
         }
 
-        public override void Parse(IDataNode node)
+        public override void Parse(DataNode node)
         {
             base.Parse(node);
             var temphum = node.State as JContainer;

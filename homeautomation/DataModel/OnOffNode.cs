@@ -15,7 +15,19 @@ namespace homeautomation.DataModel
 
         public Color CurrentColor {
             get{
-                return IsPowerdOn ? Color.Yellow : Color.Tomato;
+                return IsPowerdOn ? Color.FromHex("#27ae60") : Color.FromHex("#34495e");
+            }
+        }
+
+        public override Color BackgroundColor
+        {
+            get
+            {
+                return Color.FromHex("#3498db");
+            }
+            set
+            {
+                base.BackgroundColor = value;
             }
         }
 
@@ -41,7 +53,7 @@ namespace homeautomation.DataModel
             return viewType;
         }
 
-        public override void Parse(Interfaces.IDataNode node)
+        public override void Parse(DataNode node)
         {
             base.Parse(node);
             //Name += ".";

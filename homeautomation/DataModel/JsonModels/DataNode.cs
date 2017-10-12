@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace homeautomation.DataModel
 {
-    public class DataNode : Interfaces.IDataNode
+    public class DataNode 
     {
 
         [JsonProperty(PropertyName = "name")]
@@ -18,6 +18,12 @@ namespace homeautomation.DataModel
 
 		[JsonProperty(PropertyName = "state")]
 		public object State { get; set; }
+
+        [JsonProperty(PropertyName = "icon")]
+        public string Icon { get; set; }
+
+        [JsonProperty(PropertyName = "lastSeen")]
+        public string LastSeen { get; set; }
 
 		//public object RawData { get; set; }
 

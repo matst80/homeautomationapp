@@ -40,7 +40,7 @@ namespace homeautomation.Helpers
 			}
         }
 
-        public INode CreateNodeFromData(IDataNode node)
+        public INode CreateNodeFromData(DataNode node)
         {
             return Activator.CreateInstance(GetNodeType(node.Features[0])) as INode;
         }

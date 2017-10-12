@@ -28,6 +28,8 @@ namespace homeautomation.DataModel
             }                           
         }
 
+        public virtual Color BackgroundColor { get; set; } = Color.White;
+
         public string StringRepresentation { get; set; }
 
         public bool WaitingForChange { get; set; }
@@ -52,7 +54,7 @@ namespace homeautomation.DataModel
 
 
 
-        public virtual void Parse(IDataNode node)
+        public virtual void Parse(DataNode node)
         {
             
             Updates++;
@@ -60,7 +62,8 @@ namespace homeautomation.DataModel
             if (string.IsNullOrEmpty(Topic))
                 Topic = node.Topic;
             Description = node.Description;
-            StringRepresentation = node.State.ToString();
+            if (node.State!=null)
+                StringRepresentation = node.State.ToString();
 
             Features = node.Features;
             if (string.IsNullOrEmpty(Topic))

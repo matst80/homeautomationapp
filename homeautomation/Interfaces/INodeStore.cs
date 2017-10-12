@@ -9,7 +9,11 @@ namespace homeautomation.Interfaces
 {
     public interface INodeStore
     {
-        ObservableCollection<INode> Nodes { get; set; }
+        ObservableCollection<INode> Nodes { get; }
+
+        ObservableCollection<INodeContainer> Containers {
+            get;
+        }
         //IDataSource NodesDataSource { get; }
 
         event NodeChangeDelegate NodeChanged;

@@ -39,15 +39,23 @@ namespace homeautomation.BL
             return ret.IsSuccessStatusCode;
 		}
 
-        public async Task<IEnumerable<IDataNode>> GetNodes()
+        private async Task<Tret> JsonGet<Tret>(string url) {
+            
+            var json = await httpClient.GetStringAsync(url);
+            return await Task.Run(() => JsonConvert.DeserializeObject<Tret>(json));
+            
+        }
+
+        public async Task<IEnumerable<DataNode>> GetNodes()
         {
-			var json = await httpClient.GetStringAsync($"api/node");
-			return await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<DataModel.DataNode>>(json));
+            return await JsonGet<IEnumerable<DataNode>>($"api/node");
+			//var json = await httpClient.GetStringAsync($"api/node");
+			//return await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<DataNode>>(json));
         }
 
 		public async Task<HttpResponseMessage> Post(string url, object item)
 		{
-			var serializedItem = JsonConvert.SerializeObject(item);
+            var serializedItem = JsonConvert.SerializeObject(item);
             return await httpClient.PostAsync(url, new StringContent(serializedItem, System.Text.Encoding.UTF8, "application/json"));
 		}
 
@@ -56,5 +64,11 @@ namespace homeautomation.BL
             return ret.IsSuccessStatusCode;
         }
 
+        public async Task<IEnumerable<DataNodeContainer>> GetContainers()
+        {
+            return await JsonGet<IEnumerable<DataNodeContainer>>($"api/container");
+            //var json = await httpClient.GetStringAsync($"api/container");
+            //return await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<DataNodeContainer>>(json));
+        }
     }
 }

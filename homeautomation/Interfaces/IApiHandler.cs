@@ -7,12 +7,13 @@ namespace homeautomation.Interfaces
 {
     
     public delegate void NodeChangeDelegate(Interfaces.INode node);
-    public delegate void DataNodeChangeDelegate(Interfaces.IDataNode node);
+    public delegate void DataNodeChangeDelegate(DataNode node);
 
     public interface IApiHandler
     {
         //Task<System.Net.Mqtt.IMqttClient> Connect();
-        Task<IEnumerable<IDataNode>> GetNodes();
+        Task<IEnumerable<DataNode>> GetNodes();
+        Task<IEnumerable<DataNodeContainer>> GetContainers();
 
         //event DataNodeChangeDelegate DataNodeChanged;
 
