@@ -6,14 +6,14 @@
    
     x:Class="homeautomation.Views.NodeItemView">
 	<ContentPage.Content>
-        <StackLayout Padding="10" VerticalOptions="Center">
-            <local:NodeSelectorView />
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+            <local:NodeSelectorView HeightRequest="150" VerticalOptions="StartAndExpand" />
             <Label Text="Name" />
             <Entry x:Name="tbName" Text="{Binding Name}" Placeholder="Enter name" />
             <Label Text="Description" />
             <Entry x:Name="tbDesc" Text="{Binding Description}" Placeholder="Enter description" />
             <Label Text="{Binding FeatureString}" />
- 
+            <Label Text="{Binding Topic}" />
             <Button Text="Save" Clicked="Handle_Clicked" />
         </StackLayout>
 	</ContentPage.Content>

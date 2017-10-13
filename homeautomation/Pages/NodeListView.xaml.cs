@@ -18,6 +18,7 @@ namespace homeautomation.Views
 
         public NodeListView()
         {
+            var c = new CarouselView();
             InitializeComponent();
             BindingContext = MyViewModel;
         }

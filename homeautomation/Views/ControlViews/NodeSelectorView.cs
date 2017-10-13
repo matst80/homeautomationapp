@@ -51,6 +51,7 @@ namespace homeautomation.Views
             {
                 TextColor = iconColor,
                 HorizontalTextAlignment = TextAlignment.End,
+                VerticalTextAlignment = TextAlignment.Center,
                 FontSize = 14,
                 Text = "Settings"
             };
@@ -82,6 +83,7 @@ namespace homeautomation.Views
                    
                     Children.Remove(currentView);
                     currentView = Activator.CreateInstance(newViewType) as BaseNodeContentView;
+                    //currentView.BackgroundColor = Color.Transparent;
                     Children.Add(currentView);
 
                 }
@@ -94,7 +96,7 @@ namespace homeautomation.Views
             var b = y + height;
             currentView.Layout(new Rectangle(x + 10, y + 10, width - 20, height - 25));
             settingsButton.Layout(new Rectangle(r - 30, b - 30, 30, 30));
-            settingsLabel.Layout(new Rectangle(x, b - 28, width - 30, 28));
+            settingsLabel.Layout(new Rectangle(x, b - 30, width - 30, 30));
         }
 
     }

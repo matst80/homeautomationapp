@@ -34,9 +34,11 @@ namespace homeautomation.BL
 
 
             ret.Parse(node);
-			if (isNew)
+            if (isNew)
+            {
                 Nodes.Add(ret);
-            
+                AllNodesContainer.Nodes.Add(ret);
+            }
 			
             NodeChanged?.Invoke(ret);
                 
@@ -72,8 +74,16 @@ namespace homeautomation.BL
         public NodeStore() {
             Nodes = new ObservableCollection<INode>();
             Containers = new ObservableCollection<INodeContainer>();
+            Containers.Add(AllNodesContainer);
             //NodesDataSource = new NodeDataSource(Nodes);
         }
+
+        public INodeContainer AllNodesContainer = new NodeContainer()
+        {
+            Id = "all",
+            Title = "All nodes",
+            Nodes = new ObservableCollection<INode>()
+        };
 
         public ObservableCollection<INode> Nodes { get; set; }
 

@@ -38,25 +38,16 @@ namespace homeautomation.ViewModels
                 return Helpers.StateHelper.Instance.NodeStore.NodesDataSource;
             }
         }
-*/
+
         public ObservableCollection<Interfaces.INode> Nodes {
             get {
                 return _nodeList;
             }
         }
+        */
 
         public ObservableCollection<Interfaces.INodeContainer> Containers => Helpers.StateHelper.Instance.NodeStore.Containers;
 
-        public ICommand DoStuff => new Command((obj) =>
-        {
-			Device.BeginInvokeOnMainThread(() =>
-			{
-                foreach (var n in Nodes)
-                {
-                    n.Name += "..";
-                }
-            });
-        });
 
         public void OnAppearing()
         {

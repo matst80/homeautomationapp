@@ -2,13 +2,30 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
     xmlns:local="clr-namespace:homeautomation.Views"
     x:Class="homeautomation.Views.NodeListView"
     Title="{Binding Title}">
-	<ContentPage.Content>  
-        <ScrollView>
-            <local:NodeList Nodes="{Binding Nodes}" />
-        </ScrollView>
+	<ContentPage.Content>
+        <cv:CarouselView ItemsSource="{Binding Containers}">
+            <cv:CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="0" BackgroundColor="#2980b9" HeightRequest="100" Padding="10">
+                            <Label Text="{Binding Title}" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="End"></Label>
+                        </StackLayout>
+                        <ScrollView Grid.Row="1">
+                            <local:NodeList Nodes="{Binding Nodes}" />
+                        </ScrollView>
+                    </Grid>
+                </DataTemplate>
+            </cv:CarouselView.ItemTemplate>
+        </cv:CarouselView>
+
         <!--<ListView ItemsSource="{Binding Nodes}" HasUnevenRows="true" SeparatorVisibility="None" CachingStrategy="RecycleElement" BackgroundColor="Transparent">
             <ListView.ItemTemplate>
                 <DataTemplate>
