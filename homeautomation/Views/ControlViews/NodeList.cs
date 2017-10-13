@@ -47,12 +47,12 @@ namespace homeautomation.Views
 			
         }
 
-        protected NodeSelectorView CreateDefault(INode item)
+        protected View CreateDefault(INode item)
         {
             var ret = new NodeSelectorView();
             ret.BindingContext = item;
-            ret.Opacity = 0;
-            ret.FadeTo(1,500,Easing.SinIn);
+            //ret.Opacity = 0;
+            //ret.FadeTo(1,500,Easing.SinIn);
             return ret;
         }
 

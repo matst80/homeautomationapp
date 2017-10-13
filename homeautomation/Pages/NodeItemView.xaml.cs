@@ -12,7 +12,7 @@ namespace homeautomation.Views
         async void Handle_Clicked(object sender, System.EventArgs e)
         {
             await StateHelper.Instance.ApiHandler.SendCustomization(new DataModel.CustomizationData(CurrentNode,tbName.Text, tbDesc.Text));
-            await App.Current.MainPage.Navigation.PopModalAsync(true);
+            //await App.Current.MainPage.Navigation.PopModalAsync(true);
         }
 
         public NodeItemView()
